@@ -46,11 +46,11 @@ function updateConfetti() {
 setInterval(drawConfetti, 30);
 // 🎀 Photo Album Logic
 const photos = [
-  "https://via.placeholder.com/300x360.png?text=Photo+1",
-  "https://via.placeholder.com/300x360.png?text=Photo+2",
-  "https://via.placeholder.com/300x360.png?text=Photo+3",
-  "https://via.placeholder.com/300x360.png?text=Photo+4",
-  "https://via.placeholder.com/300x360.png?text=Photo+5"
+  "images/photo1.jpg",
+  "images/photo2.jpg",
+  "images/photo3.jpg",
+  "images/photo4.jpg",
+  "images/photo5.jpg"
 ];
 
 let currentPhoto = 0;
