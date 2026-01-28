@@ -3,7 +3,15 @@ let currentPage = 1;
 function nextPage() {
   document.getElementById(`page${currentPage}`).classList.remove("active");
   currentPage++;
-  document.getElementById(`page${currentPage}`).classList.add("active");
+  const next = document.getElementById(`page${currentPage}`);
+  next.classList.add("active");
+
+  // 🔥 Trigger letter when reaching page 5
+  if (currentPage === 5) {
+    letterEl.innerHTML = ""; // reset if revisited
+    lineIndex = 0;
+    setTimeout(writeLetter, 600);
+  }
 }
 // 🎊 Confetti animation
 const canvas = document.getElementById("confetti");
@@ -196,12 +204,4 @@ function writeLetter() {
   }
 }
 
-// Start writing when page 5 becomes active
-const observer = new MutationObserver(() => {
-  if (document.getElementById("page5").classList.contains("active")) {
-    observer.disconnect();
-    writeLetter();
-  }
-});
 
-observer.observe(document.body, { subtree: true, attributes: true });
