@@ -1,3 +1,4 @@
+alert("JS LOADED");
 let current = 1;
 const total = 5;
 
