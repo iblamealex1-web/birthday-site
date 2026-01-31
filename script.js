@@ -3,9 +3,24 @@ const total = 5;
 
 function goNext() {
   if (current < total) {
+    // hide current page
     document.getElementById("page" + current).classList.remove("active");
+
+    // go to next
     current++;
-    document.getElementById("page" + current).classList.add("active");
+
+    const nextPage = document.getElementById("page" + current);
+    nextPage.classList.add("active");
+
+    // ✅ start matching game on page 3
+    if (current === 3) {
+      startGame();
+    }
+
+    // ✅ start letter on page 5
+    if (current === 5) {
+      setTimeout(startLetter, 300);
+    }
   }
 }
 const photos = [
@@ -175,29 +190,3 @@ function startLetter() {
       clearInterval(letterTimer);
     }
   }, 600);
-}
-// 🔁 PAGE NAVIGATION (REQUIRED)
-let current = 1;
-const total = 5;
-
-function goNext() {
-  // remove current page
-  document.getElementById("page" + current).classList.remove("active");
-
-  // move forward
-  current++;
-
-  // show next page
-  const nextPage = document.getElementById("page" + current);
-  nextPage.classList.add("active");
-
-  // start game on page 3
-  if (current === 3) {
-    startGame();
-  }
-
-  // start letter on page 5
-  if (current === 5) {
-    setTimeout(startLetter, 300);
-  }
-}
