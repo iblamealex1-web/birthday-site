@@ -3,22 +3,17 @@ const total = 5;
 
 function goNext() {
   if (current < total) {
-    // hide current page
     document.getElementById("page" + current).classList.remove("active");
-
-    // go to next
     current++;
 
     const nextPage = document.getElementById("page" + current);
     nextPage.classList.add("active");
 
-    // ✅ start matching game on page 3
-    if (current === 3) {
+    if (current === 3 && typeof startGame === "function") {
       startGame();
     }
 
-    // ✅ start letter on page 5
-    if (current === 5) {
+    if (current === 5 && typeof startLetter === "function") {
       setTimeout(startLetter, 300);
     }
   }
