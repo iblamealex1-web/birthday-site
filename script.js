@@ -151,12 +151,12 @@ function blowCandle() {
 /* =========================
    ✉️ FINAL LETTER (PAGE 5)
 ========================= */
-const herName = "AnshiiiiE";
+const herName = "anshieee";
 
 const letterLines = [
-  `Dear ${anshiie},`,
+  `Dear ${herName},`,
   "",
-  "Happy Birthday twinnn 🤍",
+  "Happy Birthday twinn 🤍",
   "",
   "This little journey was made just for you.",
   "Not to impress — but to remind you",
@@ -191,4 +191,5 @@ function startLetter() {
       clearInterval(letterTimer);
     }
   }, 600);
-                            }
+}
+  
