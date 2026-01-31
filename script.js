@@ -120,3 +120,16 @@ function resetTurn() {
 
 // start game when page loads
 startGame();
+// 🎂 Cake interaction logic
+let candleBlown = false;
+
+function blowCandle() {
+  if (candleBlown) return;
+  candleBlown = true;
+
+  document.getElementById("flame").classList.add("off");
+  document.querySelector(".cake").classList.add("cut");
+
+  document.getElementById("cakeMsg").style.display = "block";
+  document.getElementById("cakeNext").style.display = "inline-block";
+      }
