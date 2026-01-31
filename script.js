@@ -1,16 +1,16 @@
 let currentPage = 1;
-
 function nextPage() {
-  document.getElementById(`page${currentPage}`).classList.remove("active");
-  currentPage++;
-  const next = document.getElementById(`page${currentPage}`);
-  next.classList.add("active");
+  // remove current
+  document.querySelector(".page.active").classList.remove("active");
 
-  // 🔥 Trigger letter when reaching page 5
+  currentPage++;
+
+  const page = document.getElementById("page" + currentPage);
+  page.classList.add("active");
+
+  // FORCE page 5 letter start
   if (currentPage === 5) {
-    letterEl.innerHTML = ""; // reset if revisited
-    lineIndex = 0;
-    setTimeout(writeLetter, 600);
+    startLetter();
   }
 }
 // 🎊 Confetti animation
@@ -203,5 +203,44 @@ function writeLetter() {
     setTimeout(writeLetter, 650);
   }
 }
+const herName = "Anshiiii twinnn";
 
+const letterLines = [
+  `dear twin ${anshiii},`,
+  "",
+  "On this day, the world quietly became a little brighter.",
+  "Not because of candles or gifts —",
+  "but because you exist within it.",
+  "",
+  "Your kindness has weight.",
+  "Your presence leaves warmth behind.",
+  "Even on the days you doubt yourself,",
+  "you are still more than enough.",
+  "",
+  "Happy Birthday.",
+  "This page will always wait for you."
+];
+
+let lineIndex = 0;
+let letterInterval = null;
+
+function startLetter() {
+  const letterEl = document.getElementById("letterText");
+
+  // reset
+  letterEl.innerHTML = "";
+  lineIndex = 0;
+
+  // stop any previous interval
+  if (letterInterval) clearInterval(letterInterval);
+
+  letterInterval = setInterval(() => {
+    if (lineIndex < letterLines.length) {
+      letterEl.innerHTML += letterLines[lineIndex] + "<br>";
+      lineIndex++;
+    } else {
+      clearInterval(letterInterval);
+    }
+  }, 700);
+  }
 
