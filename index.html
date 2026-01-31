@@ -15,9 +15,19 @@
   </section>
 
   <section class="page" id="page2">
-    <h2>Memories 🎀</h2>
-    <p>We’ll add the photo album here.</p>
-    <button onclick="goNext()">Next →</button>
+  <h2>Memories 🎀</h2>
+  <p>Swipe through — each one is special</p>
+
+  <div class="album">
+    <img id="albumImg" src="images/photo1.jpg" alt="memory">
+  </div>
+
+  <div class="controls">
+    <button onclick="prevPhoto()">←</button>
+    <button onclick="nextPhoto()">→</button>
+  </div>
+
+  <button onclick="goNext()">Next →</button>
   </section>
 
   <section class="page" id="page3">
