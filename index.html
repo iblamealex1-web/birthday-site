@@ -1,115 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Happy Birthday 🤍</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Playfair+Display&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-  <!-- Balloons -->
-<div class="balloons">
-  <div class="balloon pink"></div>
-  <div class="balloon purple"></div>
-  <div class="balloon blue"></div>
-  <div class="balloon peach"></div>
-</div>
-<!-- Confetti -->
-<canvas id="confetti"></canvas>
 <body>
 
-  <!-- PAGE 1 -->
   <section class="page active" id="page1">
     <h1>Happy Birthday 🤍</h1>
-    <p class="intro">
-      This isn’t just a website.  
-      It’s a small celebration of you —  
-      your kindness, your strength, and the light you bring.
-    </p>
-
-    <!-- Spotify Embed (Kulosa) -->
-    <div class="spotify">
-      <iframe style="border-radius:12px"
-        src="https://open.spotify.com/embed/track/5K3q5Y9n6s1F6Z7M7d4VxH"
-        width="100%" height="80" frameBorder="0"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-      </iframe>
-    </div>
-
-    <button onclick="nextPage()">Open the gift →</button>
+    <p>This little space on the internet is just for you.</p>
+    <button onclick="goNext()">Start →</button>
   </section>
 
- <!-- PAGE 2 -->
-<section class="page" id="page2">
-  <h2>Little memories 🎀</h2>
-  <p class="soft">Swipe through — each one hides a gift</p>
+  <section class="page" id="page2">
+    <h2>Memories 🎀</h2>
+    <p>We’ll add the photo album here.</p>
+    <button onclick="goNext()">Next →</button>
+  </section>
 
-  <div class="album">
-    <img id="albumPhoto" src="https://via.placeholder.com/300x360.png?text=Photo+1" alt="memory">
-  </div>
+  <section class="page" id="page3">
+    <h2>A Small Game 🎮</h2>
+    <p>We’ll add the matching game here.</p>
+    <button onclick="goNext()">Next →</button>
+  </section>
 
-  <div class="gift" id="gift">🎁</div>
+  <section class="page" id="page4">
+    <h2>Make a Wish 🎂</h2>
+    <p>We’ll add the cake interaction here.</p>
+    <button onclick="goNext()">Final →</button>
+  </section>
 
-  <div class="controls">
-    <button onclick="prevPhoto()">←</button>
-    <button onclick="nextPhoto()">→</button>
-  </div>
-
-  <button class="next" onclick="nextPage()">Continue →</button>
-</section>
-  
-<!-- PAGE 3 -->
-<section class="page" id="page3">
-  <h2>A little birthday game 🎮</h2>
-  <p class="soft">Match the cards to unlock your wish</p>
-
-  <div class="game-board" id="gameBoard"></div>
-
-  <p class="win-text hidden" id="winText">
-    You did it ✨  
-    A little reminder — good things come easily to you.
-  </p>
-
-  <button class="next hidden" id="gameNext" onclick="nextPage()">Continue →</button>
-</section>
-
-  <!-- PAGE 4 -->
-<section class="page" id="page4">
-  <h2>Make a wish 🎂</h2>
-  <p class="soft">Tap the cake</p>
-
-  <div class="cake-area">
-    <div class="cake" onclick="cutCake()">
-      <div class="layer top"></div>
-      <div class="layer mid"></div>
-      <div class="layer bottom"></div>
-      <div class="candle"></div>
-    </div>
-  </div>
-
-  <div class="presents hidden" id="presents">
-    🎁 🎀 🎁 🎀 🎁
-  </div>
-
-  <p class="cake-text hidden" id="cakeText">
-    May your days be sweet,  
-    your wishes light,  
-    and your smile endless 🤍
-  </p>
-
-  <audio id="birthdaySong" src="birthday.mp3"></audio>
-
-  <button class="next hidden" id="cakeNext" onclick="nextPage()">Final page →</button>
-</section>
-
-  
-  <!-- PAGE 5 -->
   <section class="page" id="page5">
-    <h2>A letter for you ✉️</h2>
-    <p>This one is from the heart.</p>
+    <h2>A Letter ✉️</h2>
+    <p>This is where the letter will appear.</p>
   </section>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
-
