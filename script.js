@@ -28,3 +28,24 @@ function prevPhoto() {
   document.getElementById("albumImg").src = photos[photoIndex];
 }
   
+function nextPhoto() {
+  const img = document.getElementById("albumImg");
+  img.classList.add("fade");
+
+  setTimeout(() => {
+    photoIndex = (photoIndex + 1) % photos.length;
+    img.src = photos[photoIndex];
+    img.classList.remove("fade");
+  }, 400);
+}
+
+function prevPhoto() {
+  const img = document.getElementById("albumImg");
+  img.classList.add("fade");
+
+  setTimeout(() => {
+    photoIndex = (photoIndex - 1 + photos.length) % photos.length;
+    img.src = photos[photoIndex];
+    img.classList.remove("fade");
+  }, 400);
+}
