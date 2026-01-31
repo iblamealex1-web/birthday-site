@@ -49,3 +49,74 @@ function prevPhoto() {
     img.classList.remove("fade");
   }, 400);
 }
+// 🎮 Matching Game Logic
+const symbols = ["🎀","🎂","💖","🌸","🎁","✨"];
+let cards = [...symbols, ...symbols];
+let first = null;
+let second = null;
+let lock = false;
+let matches = 0;
+
+const game = document.getElementById("game");
+
+function startGame() {
+  game.innerHTML = "";
+  matches = 0;
+  first = second = null;
+  lock = false;
+
+  cards.sort(() => Math.random() - 0.5);
+
+  cards.forEach(symbol => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.dataset.symbol = symbol;
+    card.innerHTML = "❓";
+
+    card.onclick = () => flip(card);
+    game.appendChild(card);
+  });
+}
+
+function flip(card) {
+  if (lock || card === first || card.classList.contains("matched")) return;
+
+  card.innerHTML = card.dataset.symbol;
+  card.classList.add("flipped");
+
+  if (!first) {
+    first = card;
+    return;
+  }
+
+  second = card;
+  lock = true;
+
+  if (first.dataset.symbol === second.dataset.symbol) {
+    first.classList.add("matched");
+    second.classList.add("matched");
+    resetTurn();
+    matches++;
+
+    if (matches === symbols.length) {
+      document.getElementById("winMsg").style.display = "block";
+      document.getElementById("gameNext").style.display = "inline-block";
+    }
+  } else {
+    setTimeout(() => {
+      first.innerHTML = "❓";
+      second.innerHTML = "❓";
+      first.classList.remove("flipped");
+      second.classList.remove("flipped");
+      resetTurn();
+    }, 700);
+  }
+}
+
+function resetTurn() {
+  first = second = null;
+  lock = false;
+}
+
+// start game when page loads
+startGame();
