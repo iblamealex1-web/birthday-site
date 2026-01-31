@@ -76,3 +76,33 @@ button {
   opacity: 0;
   transform: scale(0.96);
 }
+/* 🎮 Matching Game */
+.game {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  gap: 12px;
+  margin: 25px auto;
+}
+
+.card {
+  width: 70px;
+  height: 90px;
+  background: #ffb3c6;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: transform 0.3s;
+}
+
+.card.flipped,
+.card.matched {
+  background: white;
+}
+
+.card.matched {
+  pointer-events: none;
+  opacity: 0.6;
+}
