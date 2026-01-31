@@ -133,3 +133,43 @@ function blowCandle() {
   document.getElementById("cakeMsg").style.display = "block";
   document.getElementById("cakeNext").style.display = "inline-block";
       }
+// ✍️ Final Letter Logic
+const herName = "Anshika";
+
+const letterLines = [
+  `Dear ${anshiii},`,
+  "",
+  "Happy Birthday twinnnn🤍",
+  "",
+  "This little journey was made just for you.",
+  "Not to impress — but to remind you",
+  "how special you truly are.",
+  "",
+  "May your days be gentle.",
+  "May your heart stay warm.",
+  "And may you always know",
+  "you are deeply appreciated.",
+  "",
+  "With a smile,",
+  "Someone who cares"
+];
+
+let letterIndex = 0;
+let letterTimer = null;
+
+function startLetter() {
+  const el = document.getElementById("letterText");
+  el.innerHTML = "";
+  letterIndex = 0;
+
+  if (letterTimer) clearInterval(letterTimer);
+
+  letterTimer = setInterval(() => {
+    if (letterIndex < letterLines.length) {
+      el.innerHTML += letterLines[letterIndex] + "\n";
+      letterIndex++;
+    } else {
+      clearInterval(letterTimer);
+    }
+  }, 600);
+}
