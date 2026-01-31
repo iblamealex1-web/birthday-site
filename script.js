@@ -133,13 +133,13 @@ function blowCandle() {
   document.getElementById("cakeMsg").style.display = "block";
   document.getElementById("cakeNext").style.display = "inline-block";
       }
-// ✍️ Final Letter Logic
-const herName = "Anshika";
+
+const herName = "anshiiiE";
 
 const letterLines = [
-  `Dear ${anshiii},`,
+  `Dear ${anshii},`,
   "",
-  "Happy Birthday twinnnn🤍",
+  "Happy Birthday twinnnnnn🤍",
   "",
   "This little journey was made just for you.",
   "Not to impress — but to remind you",
@@ -150,8 +150,8 @@ const letterLines = [
   "And may you always know",
   "you are deeply appreciated.",
   "",
-  "With a smile,",
-  "Someone who cares"
+  "With care,",
+  "apka twin"
 ];
 
 let letterIndex = 0;
@@ -159,6 +159,9 @@ let letterTimer = null;
 
 function startLetter() {
   const el = document.getElementById("letterText");
+
+  if (!el) return; // safety check
+
   el.innerHTML = "";
   letterIndex = 0;
 
@@ -172,4 +175,29 @@ function startLetter() {
       clearInterval(letterTimer);
     }
   }, 600);
+}
+// 🔁 PAGE NAVIGATION (REQUIRED)
+let current = 1;
+const total = 5;
+
+function goNext() {
+  // remove current page
+  document.getElementById("page" + current).classList.remove("active");
+
+  // move forward
+  current++;
+
+  // show next page
+  const nextPage = document.getElementById("page" + current);
+  nextPage.classList.add("active");
+
+  // start game on page 3
+  if (current === 3) {
+    startGame();
+  }
+
+  // start letter on page 5
+  if (current === 5) {
+    setTimeout(startLetter, 300);
+  }
 }
